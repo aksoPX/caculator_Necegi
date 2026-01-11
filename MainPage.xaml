@@ -1,184 +1,111 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage 
-    Shell.NavBarIsVisible="False"
-    NavigationPage.HasNavigationBar="False"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="caculator.MainPage"
-             BackgroundColor="#0e0345"
-             >
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#0e0345">
 
     <ScrollView>
         <VerticalStackLayout Spacing="0" Padding="0">
 
-            <Grid HeightRequest="150">
+            <Grid HeightRequest="160">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#040762" Offset="0.1" />
                         <GradientStop Color="#4d0a9e" Offset="1.0" />
                     </LinearGradientBrush>
                 </Grid.Background>
-
-                <Label Text="necegi калькулятор
-                                  Created by aksolotol :3"
-                       FontSize="32"
-                       FontAttributes="Bold"
-                       TextColor="White"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center" />
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="2">
+                    <Label Text="necegi калькулятор" FontSize="28" FontAttributes="Bold" TextColor="White" HorizontalTextAlignment="Center" />
+                    <Label Text="Created by aksolotol :3" FontSize="14" TextColor="#A0FFFFFF" HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
             </Grid>
 
-            <VerticalStackLayout Spacing="20" Padding="25" Margin="0,-30,0,0">
-                <Border
-                    
-                    StrokeShape="RoundRectangle 20"
-                        StrokeThickness="0"
-                        BackgroundColor="#85FFFFFF"
-                        Padding="20">
-                    <Border.Shadow>
-                        <Shadow Brush="Black" Offset="0,5" Radius="10" Opacity="0.1" />
-                    </Border.Shadow>
+            <VerticalStackLayout Spacing="20" Padding="20" Margin="0,-25,0,0">
 
+                <Border StrokeShape="RoundRectangle 25" StrokeThickness="0" BackgroundColor="#85FFFFFF" Padding="20">
                     <VerticalStackLayout Spacing="15">
                         <Label Text="Параметры расчета" FontSize="20" FontAttributes="Bold" TextColor="Black" />
 
                         <VerticalStackLayout Spacing="5">
-                            <Label Text="Текущий опыт" TextColor="Black" FontSize="18" Margin="5,0"/>
-                            <Border Stroke="#80FFFFFF" 
-        StrokeThickness="1.5" 
-        StrokeShape="RoundRectangle 10" 
-        BackgroundColor="#40000000" 
-        Padding="15,0"
-        HeightRequest="50">
-                                <Entry x:Name="ExperienceEntry"
-           Placeholder="0"
-           PlaceholderColor="#A0FFFFFF"
-           Keyboard="Numeric"
-           TextColor="White"
-           BackgroundColor="Transparent"
-           FontSize="18"
-           VerticalOptions="Center" />
+                            <Label Text="Текущий опыт" TextColor="Black" FontSize="14" Margin="5,0"/>
+                            <Border Stroke="#80FFFFFF" StrokeThickness="1" StrokeShape="RoundRectangle 12" BackgroundColor="#30000000" Padding="15,0" HeightRequest="55">
+                                <Entry x:Name="ExperienceEntry" Placeholder="0" PlaceholderColor="#A0FFFFFF" Keyboard="Numeric" TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" />
                             </Border>
                         </VerticalStackLayout>
 
                         <VerticalStackLayout Spacing="5">
-                            <Label Text="Требуемый опыт" TextColor="#000000" FontSize="18" Margin="5,0"/>
-                            <Border Stroke="#80FFFFFF" 
-        StrokeThickness="1.5" 
-        StrokeShape="RoundRectangle 10" 
-        BackgroundColor="#40000000" 
-        Padding="15,0"
-        HeightRequest="50">
-                                <Entry x:Name="RequiredExperienceEntry"
-           Placeholder="0"
-           PlaceholderColor="#A0FFFFFF"
-           Keyboard="Numeric"
-           TextColor="White"
-           BackgroundColor="Transparent"
-           FontSize="18"
-           VerticalOptions="Center" />
+                            <Label Text="Требуемый опыт" TextColor="Black" FontSize="14" Margin="5,0"/>
+                            <Border Stroke="#80FFFFFF" StrokeThickness="1" StrokeShape="RoundRectangle 12" BackgroundColor="#30000000" Padding="15,0" HeightRequest="55">
+                                <Entry x:Name="RequiredExperienceEntry" Placeholder="Введите цель..." PlaceholderColor="#A0FFFFFF" Keyboard="Numeric" TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" />
                             </Border>
                         </VerticalStackLayout>
 
                         <VerticalStackLayout Spacing="5">
-                            <Label Text="Множитель" TextColor="#000000" FontSize="18" Margin="5,0"/>
-                            <Border Stroke="#80FFFFFF" 
-        StrokeThickness="1.5" 
-        StrokeShape="RoundRectangle 10" 
-        BackgroundColor="#40000000" 
-        Padding="15,0"
-        HeightRequest="50">
-                                <Entry x:Name="MultiplierEntry"
-           Placeholder="0"
-           PlaceholderColor="#A0FFFFFF"
-           Keyboard="Numeric"
-           TextColor="White"
-           BackgroundColor="Transparent"
-           FontSize="18"
-           VerticalOptions="Center" />
+                            <Label Text="Множитель" TextColor="Black" FontSize="14" Margin="5,0"/>
+                            <Border Stroke="#80FFFFFF" StrokeThickness="1" StrokeShape="RoundRectangle 12" BackgroundColor="#30000000" Padding="15,0" HeightRequest="55">
+                                <Entry x:Name="MultiplierEntry" Text="1" PlaceholderColor="#A0FFFFFF" Keyboard="Numeric" TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" />
                             </Border>
                         </VerticalStackLayout>
                     </VerticalStackLayout>
                 </Border>
 
-                <VerticalStackLayout Spacing="12">
-                    <Button x:Name="CalculateExpButton"
-                            Text="Рассчитать опыт"
-                            Clicked="OnCalculateExpClicked"
-                            TextColor="White"
-                            BackgroundColor="#20FFFFFF"
-                            BorderColor="White"
-                            BorderWidth="1"
-                            CornerRadius="15"
-                            HeightRequest="52"
-                            >
-                            
-                        <Button.Shadow>
-                            <Shadow Offset="0,4" Radius="5" Opacity="0.3" />
-                        </Button.Shadow>
-                    </Button>
+                <Border StrokeShape="RoundRectangle 25" StrokeThickness="0" BackgroundColor="#40FFFFFF" Padding="15">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Кладовая знаний: Ранги магов" TextColor="White" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center" />
+                        <FlexLayout Wrap="Wrap" JustifyContent="SpaceEvenly" AlignContent="Start">
+                            <Button Text="Неофит (20)" CommandParameter="20" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Адепт (50)" CommandParameter="50" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Познающий (150)" CommandParameter="150" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Ученик (400)" CommandParameter="400" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Практикант (1000)" CommandParameter="1000" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Рядовой маг (3000)" CommandParameter="3000" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Опытный маг (8100)" CommandParameter="8100" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Ветеран (22000)" CommandParameter="22000" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Магистр (59000)" CommandParameter="59000" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Мастер (162000)" CommandParameter="162000" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Архимаг (500000)" CommandParameter="500000" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Высший Архимаг (1.2М)" CommandParameter="1200500" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Повелитель (3.2М)" CommandParameter="3270000" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Владыка (8.8М)" CommandParameter="8886000" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Просветлённый (24М)" CommandParameter="24155000" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Пробуждённый (65М)" CommandParameter="65659969" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                            <Button Text="Вознесённый (178М)" CommandParameter="178482301" Clicked="OnRankSelected" Style="{StaticResource RankBtnStyle}"/>
+                        </FlexLayout>
+                    </VerticalStackLayout>
+                </Border>
 
-                    <Button x:Name="CalculateGoldButton"
-                            Text="Рассчитать золото"
-                            Clicked="OnCalculateGoldClicked"
-                            TextColor="White"
-                            BackgroundColor="#20FFFFFF"
-                            BorderColor="White"
-                            BorderWidth="1"
-                            CornerRadius="15"
-                            HeightRequest="52"
-                            >
-                        <Button.Shadow>
-                            <Shadow Offset="0,4" Radius="5" Opacity="0.3" />
-                        </Button.Shadow>
-                    </Button>
+                <VerticalStackLayout Spacing="12">
+                    <Button Text="РАССЧИТАТЬ ОПЫТ" Clicked="OnCalculateExpClicked" 
+                            TextColor="White" BackgroundColor="#20FFFFFF" BorderColor="White" BorderWidth="1" CornerRadius="15" HeightRequest="60" FontAttributes="Bold" />
+                    <Button Text="РАССЧИТАТЬ ЗОЛОТО" Clicked="OnCalculateGoldClicked" 
+                            TextColor="White" BackgroundColor="#20FFFFFF" BorderColor="White" BorderWidth="1" CornerRadius="15" HeightRequest="60" FontAttributes="Bold" />
                 </VerticalStackLayout>
 
-                <Border x:Name="ResultFrame"
-        IsVisible="False"
-        StrokeThickness="2"
-        StrokeShape="RoundRectangle 20"
-        Padding="20"
-        Margin="0,10"
-        HorizontalOptions="Fill">
-
+                <Border x:Name="ResultFrame" IsVisible="False" StrokeShape="RoundRectangle 20" Padding="20" BackgroundColor="#2A1A2E" StrokeThickness="2">
                     <Border.Stroke>
                         <LinearGradientBrush EndPoint="1,0">
                             <GradientStop Color="#00D2FF" Offset="0.1" />
                             <GradientStop Color="#9D50BB" Offset="1.0" />
                         </LinearGradientBrush>
                     </Border.Stroke>
-
-                    <Border.BackgroundColor>
-                        <Color>#2A1A2E</Color>
-                    </Border.BackgroundColor>
-
-                    <Border.Shadow>
-                        <Shadow Brush="#00D2FF" Offset="0,0" Radius="40" Opacity="0.5" />
-                    </Border.Shadow>
-
-                    <VerticalStackLayout Spacing="5">
-                        <Label Text="РЕЗУЛЬТАТ" 
-               FontSize="12" 
-               TextColor="#80FFFFFF" 
-               HorizontalTextAlignment="Center"
-               CharacterSpacing="2" />
-
-                        <Label x:Name="ResultLabel"
-               FontSize="22"
-               TextColor="White"
-               FontAttributes="Bold"
-               HorizontalTextAlignment="Center">
-                            <Label.Shadow>
-                                <Shadow Brush="#00D2FF" Offset="0,0" Radius="10" Opacity="0.9" />
-                            </Label.Shadow>
-                        </Label>
-                    </VerticalStackLayout>
+                    <Label x:Name="ResultLabel" TextColor="White" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" />
                 </Border>
 
-
+                <BoxView HeightRequest="100" Color="Transparent" />
 
             </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
+
+    <ContentPage.Resources>
+        <Style x:Key="RankBtnStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#30000000" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="HeightRequest" Value="35" />
+        </Style>
+    </ContentPage.Resources>
 </ContentPage>
